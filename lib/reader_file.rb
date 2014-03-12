@@ -1,4 +1,3 @@
-
 class Reader_file
 	#need to be able to pass multiple namefiles
 	def initialize name_files
