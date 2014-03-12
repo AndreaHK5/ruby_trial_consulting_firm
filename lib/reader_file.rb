@@ -1,3 +1,4 @@
+
 class Reader_file
 	#need to be able to pass multiple namefiles
 	def initialize name_files
@@ -68,7 +69,7 @@ class Reader_file
 			name: parsed_in_array[1],
 			gender: parsed_in_array[3],
 			color: parsed_in_array[4],
-			bday: parsed_in_array[5]
+			bday: Date.strptime(parsed_in_array[5], '%m-%d-%Y')
 		}
 	end
 
@@ -79,7 +80,7 @@ class Reader_file
 			name: parsed_in_array[1],
 			gender: parsed_in_array[2],
 			color: parsed_in_array[3],
-			bday: parsed_in_array[4]				
+			bday: Date.strptime(parsed_in_array[4], '%m/%d/%Y')				
 		}
 	end
 
@@ -89,7 +90,7 @@ class Reader_file
 			surname: parsed_in_array[0],
 			name: parsed_in_array[1],
 			gender: parsed_in_array[3],
-			bday: parsed_in_array[4],
+			bday: Date.strptime(parsed_in_array[4], '%m-%d-%Y'),
 			color: parsed_in_array[5]				
 		}
 	end

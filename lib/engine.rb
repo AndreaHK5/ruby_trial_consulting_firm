@@ -8,6 +8,7 @@ class RunParsing
 		define_input
 		@lines_array = Reader_file.new(@input).read_and_parse
 		generate_output1
+		generate_output2
 	end
 
 	def welcome
@@ -31,12 +32,15 @@ class RunParsing
 		puts "#{males.sort_by {|hash| hash[:surname]} }"
 	end
 
-	def generate_output3
+	def generate_output2
 		puts "Output 2 – sorted by birth date, ascending."
-
+		puts "ACr note - I interpret form oldest to youngest"
+		@lines_array.sort_by {|hsc| hsc[:bday]}.each do |hsc1|
+			puts "#{hsc1[:name]} #{hsc1[:surname]} was born on #{hsc1[:bday].strftime("%m/%d/%Y")}"
+		end
 	end
 
-	def generate_output2
+	def generate_output3
 		puts "Output 3 – sorted by last name, descending."
 	end
 
