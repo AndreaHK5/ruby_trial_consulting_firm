@@ -88,9 +88,9 @@ class Reader_file
 		{
 			surname: parsed_in_array[0],
 			name: parsed_in_array[1],
-			gender: parsed_in_array[2],
-			bday: parsed_in_array[3],
-			color: parsed_in_array[4]				
+			gender: parsed_in_array[3],
+			bday: parsed_in_array[4],
+			color: parsed_in_array[5]				
 		}
 	end
 end

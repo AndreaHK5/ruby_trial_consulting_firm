@@ -11,23 +11,33 @@ class RunParsing
 	end
 
 	def welcome
-		puts "Andrea Cremese test fro http://www.cyrusinnovation.com/code-test-ruby/"
-		puts "this is a gino production, che credevate o'duri\n"
+		puts "Andrea Cremese test application for Cyrus Innovation"
+		puts "March 2014 - see also http://www.cyrusinnovation.com/code-test-ruby/"
+		puts "this is a Gino production, che credevate o'duri \n"
 	end
 
 	def define_input
+		#inlcude manual input for next revisions 
 		@input = ['input1.txt','input2.txt','input3.txt']
 	end
 
 	def generate_output1
-		#Output 1 – sorted by gender (females before males) then by last name ascending.
-		puts "#{@hash.sort_by {|hash| hash[:gender]}}"
+		puts 'Output 1 – sorted by gender (females before males) then by last name ascending'
+		females = @lines_array.collect {|hs| hs if hs[:gender] == 'F' || hs[:gender] == 'Female'}.compact
+		males = @lines_array.collect {|hs| hs if hs[:gender] == 'M' || hs[:gender] == 'Male'}.compact
+		puts 'Females first, by surname'
+		puts "#{females.sort_by {|hash| hash[:surname]} }"
+		puts 'Males then, by surname'
+		puts "#{males.sort_by {|hash| hash[:surname]} }"
 	end
 
 	def generate_output3
+		puts "Output 2 – sorted by birth date, ascending."
+
 	end
 
 	def generate_output2
+		puts "Output 3 – sorted by last name, descending."
 	end
 
 
