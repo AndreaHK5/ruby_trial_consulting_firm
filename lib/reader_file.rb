@@ -1,5 +1,5 @@
 require 'date'
-class Reader_file
+class ReaderFile
 	#need to be able to pass multiple namefiles
 	def initialize name_files
 		@name_files = name_files

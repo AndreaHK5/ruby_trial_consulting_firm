@@ -3,10 +3,12 @@ require_relative 'reader_file.rb'
 # require_relative 'output.rb'
 
 class RunParsing
+	attr_accessor :lines_array
+	# required for testing
 	def start
 		welcome
 		define_input
-		@lines_array = Reader_file.new(@input).read_and_parse
+		@lines_array = ReaderFile.new(@input).read_and_parse
 		generate_output1
 		generate_output2
 		generate_output3
@@ -20,7 +22,7 @@ class RunParsing
 	end
 
 	def define_input
-		#inlcude manual input for next revisions 
+		#include manual input for next revisions 
 		@input = ['input1.txt','input2.txt','input3.txt']
 	end
 
@@ -29,16 +31,16 @@ class RunParsing
 		females = extract_gender('Female')
 		males = extract_gender('Male')
 		puts 'Females first, ordered by surname:'
-		sort_by_surname(females).each {|hash| output_name(hash)}
+		sort_by_surname(females).reverse_each {|hash| output_name(hash)}
 		puts 'Males then, ordered by surname'
-		sort_by_surname(males).each {|hash| output_name(hash)}
+		sort_by_surname(males).reverse_each {|hash| output_name(hash)}
 	end
 
 	def generate_output2
 		puts "\n\nOutput 2 – sorted by birth date, ascending."
 		puts "ACr note - I interpret form oldest to youngest\n"
 		sort_by_bday.each do |hsc1|
-			puts "#{hsc1[:name]} #{hsc1[:surname]} was born on #{hsc1[:bday].strftime("%m/%d/%Y")}"
+			puts " #{hsc1[:name]} #{hsc1[:surname]} was born on #{hsc1[:bday].strftime("%m/%d/%Y")}"
 		end
 	end
 
@@ -60,7 +62,7 @@ class RunParsing
 	end
 
 	def output_name hash
-		puts "#{hash[:surname]+" "+hash[:name]}"
+		puts " #{hash[:surname]+" "+hash[:name]}"
 	end
 
 	def goodbye
