@@ -44,22 +44,22 @@ class RunParsing
 		females = extract_gender('Female')
 		males = extract_gender('Male')
 		puts 'Females first, ordered by surname:'
-		sort_by_surname(females).reverse_each {|hash| output_register(hash)}
+		sort_by_surname(females).reverse_each {|hash| output_record(hash)}
 		puts 'Males then, ordered by surname'
-		sort_by_surname(males).reverse_each {|hash| output_register(hash)}
+		sort_by_surname(males).reverse_each {|hash| output_record(hash)}
 	end
 
 	def generate_output2
 		puts "\n\nOutput 2 – sorted by birth date, ascending."
 		puts "ACr note - I interpret form oldest to youngest\n"
 		sort_by_bday.each do |hsc1|
-			output_register hsc1
+			output_record hsc1
 		end
 	end
 
 	def generate_output3
 		puts "\n\nOutput 3 – sorted by last name, descending."
-		sort_by_surname(@lines_array).each {|hash| output_register(hash)}
+		sort_by_surname(@lines_array).each {|hash| output_record(hash)}
 	end
 
 	def sort_by_surname array 
@@ -74,7 +74,7 @@ class RunParsing
 		@lines_array.collect {|hs| hs if hs[:gender] == gender}.compact
 	end
 
-	def output_register hash
+	def output_record hash
 		string = " #{hash[:surname]+" "+hash[:name]}"
 		string << ", #{hash[:gender]+", born on "+hash[:bday].strftime("%m/%d/%Y")}"
 		string << ", color: #{hash[:color]}"
