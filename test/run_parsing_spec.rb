@@ -47,6 +47,20 @@ describe RunParsing do
 		sorted_by_bday.first[:surname].must_equal 'ccc'
 		sorted_by_bday.last[:surname].must_equal 'Aaa'
 	end
+
+	it "outputs result correctly" do
+		hash = {
+			surname: "surname",
+			name: "name",
+			gender: "gender",
+			color: "color",
+			bday: Date.strptime('1-1-2002', '%m-%d-%Y')
+		}
+		out, err = capture_io do 
+			@run.output_register(hash)
+		end
+		out.must_equal " surname name, gender, born on 01/01/2002, color: color\n"
+	end
 end
  
 

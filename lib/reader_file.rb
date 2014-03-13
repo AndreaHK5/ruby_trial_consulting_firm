@@ -1,4 +1,5 @@
 require 'date'
+
 class ReaderFile
 	#need to be able to pass multiple namefiles
 	def initialize name_files
@@ -12,14 +13,11 @@ class ReaderFile
 				array << parse_line(line)
 			end
 		end
-#		puts "\n done reading"
 		array
 	end
 
 	def read_file name_file
-		# inspired by http://stackoverflow.com/questions/5545068/what-are-all-the-common-ways-to-read-a-file-in-ruby
 		output = []
-#		puts "\nOpening and reading File #{name_file} in the directory sources\n"
 		File.open("sources/#{name_file}", "r") do |f|
 		  f.each_line do |line|
 		    output << line
