@@ -14,7 +14,7 @@ Refer to http://www.cyrusinnovation.com/code-test-ruby/ for the brief.
 Please run "ruby runner.rb" in the "lib" subfolder.
 
 == Running of tests		
-Please run "ruby test.rb"" in the "test" subfolder. 
+Please run "ruby test.rb" in the "test" subfolder. 
 
 == Ruby version		
 The ruby version used is: ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin13.0.2]

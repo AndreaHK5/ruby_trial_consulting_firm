@@ -21,7 +21,7 @@ class RunParsing
 
 	def define_input
 		#include manual input for next revisions 
-		puts "\n\nAs a standard, I will try reading the inputs stated in the brief in teh files input1, input2 and input3, located in the source folder"
+		puts "\n\nAs a standard, I will try reading the inputs stated in the brief in the files input1, input2 and input3, located in the source folder"
 		puts "Please type:\n - Y if this is ok.\n - The number of files provided (will look in the source folder)."
 		puts " - Any other key to exit."
 		puts "\n\n Your choice [Y, number of files, exit]:"

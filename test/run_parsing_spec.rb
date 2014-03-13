@@ -57,7 +57,7 @@ describe RunParsing do
 			bday: Date.strptime('1-1-2002', '%m-%d-%Y')
 		}
 		out, err = capture_io do 
-			@run.output_register(hash)
+			@run.output_record(hash)
 		end
 		out.must_equal " surname name, gender, born on 01/01/2002, color: color\n"
 	end

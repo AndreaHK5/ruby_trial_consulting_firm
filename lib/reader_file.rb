@@ -1,7 +1,7 @@
 require 'date'
 
 class ReaderFile
-	#need to be able to pass multiple namefiles
+# name_files in an array of strings 
 	def initialize name_files
 		@name_files = name_files
 	end
