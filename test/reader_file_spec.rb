@@ -3,10 +3,10 @@ require 'minitest/autorun'
 require_relative '../lib/reader_file.rb'
 
 
-describe Reader_file do
+describe ReaderFile do
   before :each do
   	@files = ['input1.txt', 'input2.txt']
-    @read = Reader_file.new(@files)
+    @read = ReaderFile.new(@files)
   end
 
   it "reads the correct number of lines in a file" do
@@ -50,9 +50,9 @@ describe Reader_file do
   it "parses comma strings correctly" do
   	string = "Abercrombie, Neil, Male, Tan, 2/13/1943"
   	hash = @read.parse_comma_string(string)
-	hash[:surname].must_equal "Abercrombie"
-	hash[:bday].day.must_equal 13
-	hash[:gender].must_equal "Male"
+  	hash[:surname].must_equal "Abercrombie"
+  	hash[:bday].day.must_equal 13
+  	hash[:gender].must_equal "Male"
   end
 
 
@@ -67,9 +67,9 @@ describe Reader_file do
   it "reads and parses correctly through multiple files" do
   	array = @read.read_and_parse
   	array.must_be_instance_of Array
-	array.count.must_equal 2
-	array[0][:surname].must_equal "Smith"
-	array[1][:surname].must_equal "Abercrombie"
+  	array.count.must_equal 2
+  	array[0][:surname].must_equal "Smith"
+  	array[1][:surname].must_equal "Abercrombie"
   end
 
 
