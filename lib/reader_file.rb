@@ -1,3 +1,4 @@
+require 'date'
 class Reader_file
 	#need to be able to pass multiple namefiles
 	def initialize name_files
@@ -11,14 +12,15 @@ class Reader_file
 				array << parse_line(line)
 			end
 		end
-		puts "\n done reading"
+#		puts "\n done reading"
+
 		array
 	end
 
 	def read_file name_file
 		# inspired by http://stackoverflow.com/questions/5545068/what-are-all-the-common-ways-to-read-a-file-in-ruby
 		output = []
-		puts "\nOpening and reading File #{name_file} in the directory sources\n"
+#		puts "\nOpening and reading File #{name_file} in the directory sources\n"
 		File.open("sources/#{name_file}", "r") do |f|
 		  f.each_line do |line|
 		    output << line
@@ -29,9 +31,9 @@ class Reader_file
 
 	def parse_line string
 		if string_matches_pipe_case?(string)
-			hash = parse_pipe_string(string)
+			parse_pipe_string(string)
 		elsif string_matches_comma_case?(string)
-			hash = parse_comma_string(string)
+			parse_comma_string(string)
 		elsif string_matches_space_case?(string)
 			parse_space_string(string)		
 		else
@@ -68,7 +70,7 @@ class Reader_file
 		{
 			surname: parsed_in_array[0],
 			name: parsed_in_array[1],
-			gender: parsed_in_array[3],
+			gender: clean_gender(parsed_in_array[3]),
 			color: parsed_in_array[4],
 			bday: Date.strptime(parsed_in_array[5], '%m-%d-%Y')
 		}
@@ -79,7 +81,7 @@ class Reader_file
 		{
 			surname: parsed_in_array[0],
 			name: parsed_in_array[1],
-			gender: parsed_in_array[2],
+			gender: clean_gender(parsed_in_array[2]),
 			color: parsed_in_array[3],
 			bday: Date.strptime(parsed_in_array[4], '%m/%d/%Y')				
 		}
@@ -90,9 +92,18 @@ class Reader_file
 		{
 			surname: parsed_in_array[0],
 			name: parsed_in_array[1],
-			gender: parsed_in_array[3],
+			gender: clean_gender(parsed_in_array[3]),
 			bday: Date.strptime(parsed_in_array[4], '%m-%d-%Y'),
 			color: parsed_in_array[5]				
 		}
 	end
+
+	def clean_gender string
+		if string.downcase == 'm' || string.downcase == 'male'
+			"Male"
+		elsif string.downcase == 'f' || string.downcase == 'female'
+			"Female"
+		end
+	end
+
 end
