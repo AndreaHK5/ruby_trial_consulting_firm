@@ -26,8 +26,8 @@ class RunParsing
 
 	def generate_output1
 		puts "\n\nOutput 1 – sorted by gender (females before males) then by last name ascending\n"
-		females = @lines_array.collect {|hs| hs if hs[:gender] == 'F' || hs[:gender] == 'Female'}.compact
-		males = @lines_array.collect {|hs| hs if hs[:gender] == 'M' || hs[:gender] == 'Male'}.compact
+		females = @lines_array.collect {|hs| hs if hs[:gender] == 'Female'}.compact
+		males = @lines_array.collect {|hs| hs if hs[:gender] == 'Male'}.compact
 		puts 'Females first, ordered by surname:'
 		sort_by_surname(females).each {|hash| output_name(hash)}
 		puts 'Males then, ordered by surname'
