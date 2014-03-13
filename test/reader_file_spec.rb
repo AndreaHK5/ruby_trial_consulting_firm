@@ -72,12 +72,5 @@ describe ReaderFile do
   	array[1][:surname].must_equal "Abercrombie"
   end
 
-
-#  it "reads correctly multiple files" do
- # 	@read.read_and_parse
-  #end
-
-
-
 end
 

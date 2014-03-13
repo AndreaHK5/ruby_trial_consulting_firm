@@ -5,22 +5,22 @@ require_relative '../lib/run_parsing.rb'
 describe RunParsing do
 	before :each do
 		@run = RunParsing.new
-		hash1 = {
+		hash3 = {
 			surname: "Aaa",
 			gender: "Male",
 			bday: Date.strptime('1-1-2004', '%m-%d-%Y')
 		}
-		hash2 = {
+		hash4 = {
 			surname: "Bbb",
 			gender: "Male",
 			bday: Date.strptime('1-1-2001', '%m-%d-%Y')
 		}
-		hash3 = {
+		hash2 = {
 			surname: "ccc",
 			gender:'Female',
 			bday: Date.strptime('1-1-2000', '%m-%d-%Y')
 		}
-		hash4 = {
+		hash1 = {
 			surname: "ddd",
 			gender: "Female",
 			bday: Date.strptime('1-1-2002', '%m-%d-%Y')

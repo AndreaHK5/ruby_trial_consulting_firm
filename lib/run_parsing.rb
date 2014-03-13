@@ -40,7 +40,7 @@ class RunParsing
 		puts "\n\nOutput 2 – sorted by birth date, ascending."
 		puts "ACr note - I interpret form oldest to youngest\n"
 		sort_by_bday.each do |hsc1|
-			puts " #{hsc1[:name]} #{hsc1[:surname]} was born on #{hsc1[:bday].strftime("%m/%d/%Y")}"
+			output_name hsc1
 		end
 	end
 
@@ -62,7 +62,11 @@ class RunParsing
 	end
 
 	def output_name hash
-		puts " #{hash[:surname]+" "+hash[:name]}"
+		string = " #{hash[:surname]+" "+hash[:name]}"
+		string << " #{hash[:gender]+", born on "+hash[:bday].strftime("%m/%d/%Y")}"
+		string << ", color: #{hash[:color]}"
+
+		puts string
 	end
 
 	def goodbye
