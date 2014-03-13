@@ -13,7 +13,6 @@ class Reader_file
 			end
 		end
 #		puts "\n done reading"
-
 		array
 	end
 

@@ -26,8 +26,8 @@ class RunParsing
 
 	def generate_output1
 		puts "\n\nOutput 1 – sorted by gender (females before males) then by last name ascending\n"
-		females = @lines_array.collect {|hs| hs if hs[:gender] == 'Female'}.compact
-		males = @lines_array.collect {|hs| hs if hs[:gender] == 'Male'}.compact
+		females = extract_gender('Female')
+		males = extract_gender('Male')
 		puts 'Females first, ordered by surname:'
 		sort_by_surname(females).each {|hash| output_name(hash)}
 		puts 'Males then, ordered by surname'
@@ -37,7 +37,7 @@ class RunParsing
 	def generate_output2
 		puts "\n\nOutput 2 – sorted by birth date, ascending."
 		puts "ACr note - I interpret form oldest to youngest\n"
-		@lines_array.sort_by {|hsc| hsc[:bday]}.each do |hsc1|
+		sort_by_bday.each do |hsc1|
 			puts "#{hsc1[:name]} #{hsc1[:surname]} was born on #{hsc1[:bday].strftime("%m/%d/%Y")}"
 		end
 	end
@@ -51,10 +51,17 @@ class RunParsing
 		array.sort_by {|hash| hash[:surname]}
 	end
 
+	def sort_by_bday
+		@lines_array.sort_by {|hsc| hsc[:bday]}
+	end
+
+	def extract_gender gender
+		@lines_array.collect {|hs| hs if hs[:gender] == gender}.compact
+	end
+
 	def output_name hash
 		puts "#{hash[:surname]+" "+hash[:name]}"
 	end
-
 
 	def goodbye
 		puts "\n\nThanks for your time!"
