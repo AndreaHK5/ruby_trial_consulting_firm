@@ -10,10 +10,10 @@ March 2014 - Refer to http://www.cyrusinnovation.com/code-test-ruby/ for the bri
 
 
 ## Running of trial application
-Please run "ruby runner.rb" in the "lib" subfolder to test the functionality.
+Please run "ruby runner.rb" in the "lib" subfolder to test the functionality required.
 
 ## Running of tests		
-Please run "ruby test.rb" in the "test" subfolder to run the tests.
+Please run "ruby test.rb" in the "test" subfolder to run all tests. Run the ruby files   run_parsing_spec.rb and reader_file_spec.rb in order to run the single tests.
 
 ## Ruby version		
 The ruby version used is: ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin13.0.2].
