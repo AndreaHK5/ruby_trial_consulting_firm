@@ -27,13 +27,27 @@ describe RunParsing do
 		}
 		@array = [hash1, hash2, hash3, hash4]
 		@run.lines_array = @array
+		@basic_record_hash = {
+			surname: "surname",
+			name: "name",
+			gender: "gender",
+			color: "color",
+			bday: Date.strptime('1-1-2002', '%m-%d-%Y')
+		}
 	end
 
 	it 'can sort by surname' do
 		sorted_array = @run.sort_by_surname(@array)
 		sorted_array.count.must_equal 4
-		sorted_array.first[:surname].must_equal 'Aaa'
+		sorted_array.first[:surname].must_equal 'ddd'
+		sorted_array.last[:surname].must_equal 'Aaa'
+	end
+
+	it 'can sort by surname in descending' do
+		sorted_array = @run.sort_by_surname(@array, {descending: true})
+		sorted_array.count.must_equal 4
 		sorted_array.last[:surname].must_equal 'ddd'
+		sorted_array.first[:surname].must_equal 'Aaa'
 	end
 
 	it 'can extract by gender' do
@@ -42,24 +56,25 @@ describe RunParsing do
 	end
 
 	it 'can sort by birthday' do
-		sorted_by_bday = @run.sort_by_bday
+		sorted_by_bday = @run.sort_by_bday(@array)
 		sorted_by_bday.count.must_equal 4
 		sorted_by_bday.first[:surname].must_equal 'ccc'
 		sorted_by_bday.last[:surname].must_equal 'Aaa'
 	end
 
-	it "outputs result correctly" do
-		hash = {
-			surname: "surname",
-			name: "name",
-			gender: "gender",
-			color: "color",
-			bday: Date.strptime('1-1-2002', '%m-%d-%Y')
-		}
+	it "outputs single result correctly" do
 		out, err = capture_io do 
-			@run.output_record(hash)
+			@run.output_record(@basic_record_hash)
 		end
-		out.must_equal " surname name, gender, born on 01/01/2002, color: color\n"
+		out.must_equal " surname name, gender, born on 01/01/2002, favourite color: color\n"
+	end
+
+	it "outputs array of results correctly" do
+		array = [@basic_record_hash]
+		out, err = capture_io do 
+			@run.print_on_screen(array)
+		end	
+		out.must_equal " surname name, gender, born on 01/01/2002, favourite color: color\n"
 	end
 end
  
