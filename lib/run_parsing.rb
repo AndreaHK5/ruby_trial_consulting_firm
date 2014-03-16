@@ -14,8 +14,8 @@ class RunParsing
 	end
 
 	def welcome
-		puts 'Andrea Cremese, trial application for Cyrus Innovation'
-		puts 'March 2014 - see http://www.cyrusinnovation.com/code-test-ruby/ for the brief'
+		puts 'Andrea C, trial application for XXX awesome consulting firm'
+		puts 'March 2014 - see XXXX site for the brief'
 		puts "This is a Gino production, che credevate o-duri \n"
 	end
 
@@ -89,7 +89,7 @@ class RunParsing
 
 	def goodbye
 		puts "\n\nThanks for your time, this was fun!"
-		puts "Andrea Cremese, cremese@gmail.com, https://github.com/AndreaHK5\n\n"
+		puts "Andrea C, https://github.com/AndreaHK5\n\n"
 	end
 
 	def get_input num_files

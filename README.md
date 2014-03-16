@@ -1,12 +1,11 @@
 
-#Trial application for Cyrus Innovation.
+#Trial application for XXX (awesome consulting agency).
 
  
-###Andrea Cremese	
-cremese@gmail.com	
+###
 https://github.com/AndreaHK5
 
-March 2014 - Refer to http://www.cyrusinnovation.com/code-test-ruby/ for the brief. 
+March 2014 - Refer to XXXXX for the brief. 
 
 
 ## Running of trial application
